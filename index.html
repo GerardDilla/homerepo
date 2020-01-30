@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+-->
+    <link rel="stylesheet" href="./css/onsenui.css">
+    <link rel="stylesheet" href="./css/onsen-css-components.min.css">
+    <script src="./js/onsenui.min.js"></script>
+    <script src="./js/jquery.js"></script>
+
+</head>
+<body>
+  
+
+        <ons-splitter>
+        <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
+            <ons-page>
+            <ons-list>
+                <ons-list-item onclick="fn.load('home.html')" tappable>
+                Access Room
+                </ons-list-item>
+                <ons-list-item onclick="fn.load('schedule.html')" tappable>
+                Room Schedule
+                </ons-list-item>
+                <ons-list-item onclick="fn.load('status.html')" tappable>
+                Room Status
+                </ons-list-item>
+                <ons-list-item onclick="fn.load('login.html')" tappable>
+                Logout
+                </ons-list-item>
+            </ons-list>
+            </ons-page>
+        </ons-splitter-side>
+        <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+        </ons-splitter>
+
+        <template id="login.html">
+            <ons-page>
+                <ons-toolbar>
+                    <div class="center">
+                        DOOR LOCK SYSTEM
+                    </div>
+                </ons-toolbar>
+            </ons-page>
+        </template>
+        
+        <template id="home.html">
+        <ons-page>
+            <ons-toolbar>
+            <div class="left">
+                <ons-toolbar-button onclick="fn.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+                </ons-toolbar-button>
+            </div>
+            <div class="center">
+                Access Room
+            </div>
+            </ons-toolbar>
+            <p style="text-align: center; opacity: 1; padding-top: 20px;">
+
+                <p style="text-align: center; opacity: 0.9; padding-top: 20px;">
+                    Face the QR code on the door's scanner.
+                </p>
+
+                <img src="./QR/TEST.PNG" width="100%" height="auto">
+
+                <div id="test"></div>
+
+                <hr>
+               
+
+            </p>
+        </ons-page>
+        </template>
+        
+        <template id="schedule.html">
+        <ons-page>
+            <ons-toolbar>
+            <div class="left">
+                <ons-toolbar-button onclick="fn.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+                </ons-toolbar-button>
+            </div>
+            <div class="center">
+                Room Schedule
+            </div>
+            </ons-toolbar>
+            <div style="padding:50px 10px 10px 10px">
+                <ons-input id="username" modifier="underbar" placeholder="Search..." float></ons-input>
+                <ons-button>Search</ons-button>
+            </div> 
+
+            <ons-list>
+                <ons-list-item modifier="chevron" onclick="createAlertDialog('room_details')" tappable>Chevron</ons-list-item>
+                <ons-list-item modifier="chevron" onclick="createAlertDialog('room_details')" tappable>Chevron</ons-list-item>
+                <ons-list-item modifier="chevron" onclick="createAlertDialog('room_details')" tappable>Chevron</ons-list-item>
+                <ons-list-item modifier="chevron" onclick="createAlertDialog('room_details')" tappable>Chevron</ons-list-item>
+                <ons-list-item modifier="chevron" onclick="createAlertDialog('room_details')" tappable>Chevron</ons-list-item>
+            </ons-list>
+
+            <template id="alert-dialog.html">
+                <ons-alert-dialog id="room_details" modifier="rowfooter">
+                    <div class="alert-dialog-title">
+                        <b>Computer Laboratory</b>
+                    </div>
+                    <div class="alert-dialog-content">
+                            <br>    
+                        <b>Status</b>: <u>Occupied</u>
+                            <br><br>
+                        <b>By</b>: <u>Andie Tombucon</u> 
+                            <br><br>
+                        <b>Since</b>: <u>1/28/2020 10:00pm </u>
+                            <br>
+                    </div>
+                    <div class="alert-dialog-footer">
+                        <ons-alert-dialog-button onclick="hideAlertDialog('room_details')">Back</ons-alert-dialog-button>
+                    </div>
+                </ons-alert-dialog>
+            </template>
+
+        </ons-page>
+        </template>
+
+        <template id="status.html">
+            <ons-page>
+                <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                    <ons-icon icon="md-menu"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">
+                    Room Status
+                </div>
+                </ons-toolbar>
+
+                <div style="padding:50px 10px 10px 10px">
+                    <ons-input id="username" modifier="underbar" placeholder="Search..." float></ons-input>
+                    <ons-button>Search</ons-button>
+                </div> 
+    
+                <ons-list>
+                    <ons-list-item modifier="chevron" onclick="createAlertDialog('room_status')" tappable>Chevron</ons-list-item>
+                    <ons-list-item modifier="chevron" onclick="createAlertDialog('room_status')" tappable>Chevron</ons-list-item>
+                    <ons-list-item modifier="chevron" onclick="createAlertDialog('room_status')" tappable>Chevron</ons-list-item>
+                    <ons-list-item modifier="chevron" onclick="createAlertDialog('room_status')" tappable>Chevron</ons-list-item>
+                    <ons-list-item modifier="chevron" onclick="createAlertDialog('room_status')" tappable>Chevron</ons-list-item>
+                </ons-list>
+    
+                <template id="alert-dialog.html">
+                    <ons-alert-dialog id="room_status" modifier="rowfooter">
+                        <div class="alert-dialog-title">
+                            <b>Computer Labowratory</b>
+                        </div>
+                        <div class="alert-dialog-content">
+                                <br>    
+                            <b>Status</b>: <u>Occupied</u>
+                                <br><br>
+                            <b>By</b>: <u>Andie Tombucon</u> 
+                                <br><br>
+                            <b>Since</b>: <u>1/28/2020 10:00pm </u>
+                                <br>
+                        </div>
+                        <div class="alert-dialog-footer">
+                            <ons-alert-dialog-button onclick="hideAlertDialog('room_status')">Back</ons-alert-dialog-button>
+                        </div>
+                    </ons-alert-dialog>
+                </template>
+
+
+            </ons-page>
+        </template>
+        
+        <template id="logout.html">
+        <ons-page>
+            <ons-toolbar>
+            <div class="left">
+                <ons-toolbar-button onclick="fn.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+                </ons-toolbar-button>
+            </div>
+            <div class="center">
+                Logged Out
+            </div>
+            </ons-toolbar>
+        </ons-page>
+        </template>
+</body>
+</html>
+
+
+<script>
+
+
+window.fn = {};
+
+        window.fn.open = function() {
+          var menu = document.getElementById('menu');
+          menu.open();
+        };
+        
+        window.fn.load = function(page) {
+          var content = document.getElementById('content');
+          var menu = document.getElementById('menu');
+          content.load(page)
+            .then(menu.close.bind(menu));
+        };
+
+
+var createAlertDialog = function(modal) {
+
+  var dialog = document.getElementById(modal);
+  if (dialog) {
+    dialog.show();
+  } else {
+    ons.createElement('alert-dialog.html', { append: true })
+    .then(function(dialog){
+
+        dialog.show();
+
+    });
+  }
+
+};
+
+var hideAlertDialog = function(modal) {
+  document
+    .getElementById(modal)
+    .hide();
+};
+
+var notify = function() {
+  ons.notification.alert('This dialog was created with ons.notification');
+};
+
+function test(){
+
+    $('#test').html('test jquery');
+
+}
+
+new Vue({
+  el: '#app',
+  template: '#main'
+});
+        
+</script>
